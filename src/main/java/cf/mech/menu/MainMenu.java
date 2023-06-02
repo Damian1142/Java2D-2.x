@@ -70,6 +70,7 @@ public class MainMenu extends AbstractScreen {
                     break;
                 case WO:
                     game.loadScreen(new MultiPlayerScreen(game));
+                    break;
                 case WY:
                     System.exit(0);
             }

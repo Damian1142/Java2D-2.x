@@ -16,11 +16,13 @@ public class Connection {
     @SneakyThrows
     public Connection(String ip, int port) {
         s = new Socket(ip,port);
-        input = new Scanner(s.getChannel());
+        input = new Scanner(s.getInputStream());
         output = new PrintStream(s.getOutputStream());
     }
 
+    @SneakyThrows
     public String send(String command){
+        s.getOutputStream().flush();
         output.println(command);
         return input.nextLine();
     }
